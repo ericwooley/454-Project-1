@@ -214,7 +214,7 @@ class NFA(FiniteAutomaton):
         return self
 
     def asDFA(self):
-        return _DFAfromNFA(self)
+        return DFAfromNFA(self)
 
     def states(self):
         visited = set()
@@ -304,7 +304,7 @@ class NFA(FiniteAutomaton):
         else:
             return ['(',expr,')']
 
-class _DFAfromNFA(DFA):
+class DFAfromNFA(DFA):
     """Conversion of NFA to DFA.  We create a DFA state for each set
     of NFA states. A DFA state is final if it contains at least one
     final NFA set, and the transition function for a DFA state is the
@@ -523,7 +523,7 @@ class _ComplementDFA(DFA):
     def isfinal(self,state):
         return not self.DFA.isfinal(state)
 
-class _MinimumDFA(DFA):
+class MinimumDFA(DFA):
     """Construct equivalent DFA with minimum number of states,
     using Hopcroft's O(ns log n) partition-refinement algorithm.
     """

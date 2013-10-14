@@ -327,7 +327,7 @@ class _DFAfromNFA(DFA):
                 return True
         return False
 
-class _NFAfromDFA(NFA):
+class NFAfromDFA(NFA):
     """Conversion of DFA to NFA.  We convert the initial state and the
     results of each transition function into single-element sets.
     """
