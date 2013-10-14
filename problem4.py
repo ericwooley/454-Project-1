@@ -28,19 +28,20 @@ def transition_counts(dfa, n):
 					tc = tc + 1
 				t = t + 1
 			a[i][j] = tc
+		pprint(a)
 
-	# matrix multiplication, no idea how or why this would or would not work
+	# matrix multiplication, can't figure out why this isn't working
+	# 
 	m = numpy.dot(a, a)
 	for i in range(1, n-1):
 		m = numpy.dot(m, a) 
 	res = numpy.dot(m, v)
 
-	pprint(res)
+	#pprint(res)
 	return res
 
 
-## from problem 3		
-
+## from problem 3
 delta = {} 
 
 alpha = ['0','1','2','3','4','5','6','7','8','9']
@@ -54,8 +55,8 @@ for i in range(x, 2*x):
 		delta[(str(i), str(j))] = (str(int(str(i)+str(j)) % x))
 
 N = LookupNFA(alpha, ['0'], delta, set(['0', str(x)] ))
-N.pprint()
-print "Number of states in the NFA: ", N.__len__(), "for divisibility: ", x
+#N.pprint()
+#print "Number of states in the NFA: ", N.__len__(), "for divisibility: ", x
 toMinDFA = MinimumDFA(DFAfromNFA(N))
 print "Number of states in minimum dfa: ", toMinDFA.__len__()
 
