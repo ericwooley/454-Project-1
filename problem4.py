@@ -52,8 +52,8 @@ def transition_counts(dfa, n):
     # matrix multiplication, can't figure out why this isn't working
     m = matpower(a, n-1)
     res = m * v
-    pprint(res)
-    return res
+    print "There are", res[0][0], "numbers that are not nearly divisible."
+    return res[0][0]
 
 
 ## from problem 3
