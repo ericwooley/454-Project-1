@@ -17,5 +17,5 @@ for i in range(0, x):
 # 		delta[x+i][j] = set([str(int(str(i)+str(j)) % x)])
 pprint (delta)
 
-N = LookupNFA("0123456789", set(['0']), delta, set([0, x]) )
+N = LookupNFA(['0','1','2','3','4','5','6','7','8','9'], set(['0']), delta, set([0, x]) )
 N.pprint()
